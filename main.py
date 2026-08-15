@@ -14,6 +14,19 @@ def main():
         elif choice == 2:
             print("Welcome to View Expenses🪟")
             view_expenses()
+
+        elif choice == 3:
+            print("Welcome to Search Expenses🔎")
+            search_expenses()
+
+        elif choice == 4:
+            print("Welcome to Updated Expenses➕")
+            update_expenses()
+
+        elif choice == 5:
+            print("Welcome to Delete Expenses")
+            delete_expenses()
+            
         elif choice == 11:
             print("Thnaks for saving up Money💰")  
             print("Keep it going!")
