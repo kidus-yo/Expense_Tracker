@@ -108,6 +108,8 @@ def update_expenses():
         description1 = input("Enter your description... ")
        except ValueError:
          print("Please Enter only the required inputs")
+       except UnboundLocalError:
+          print("Not Associated with Value")
        except Exception:
          print("Something went Wrong")
        
@@ -115,6 +117,8 @@ def update_expenses():
          amount1 = int(input("Enter an amount: "))
        except ValueError:
           print("Please Enter only the required inputs")
+       except UnboundLocalError:
+          print("Not Associated with Value")
        except Exception:
             print("Something went Wrong")
        
@@ -122,6 +126,8 @@ def update_expenses():
          catagory1 = input("Enter Catagory: ")
        except ValueError:
           print("Please Enter only the required inputs")
+       except UnboundLocalError:
+          print("Not Associated with Value")
        except Exception:
           print("Something went Wrong")
        
@@ -129,6 +135,8 @@ def update_expenses():
           date1 = input("Enter Date: ")
        except ValueError:
           print("Please Enter only the required inputs")
+       except UnboundLocalError:
+          print("Not Associated with Value")
        except Exception:
           print("Something went Wrong")
    except ValueError:
@@ -172,3 +180,12 @@ def expense_statistics(highest, lowest):
       if expense.amount <= lowest:
          lowest = expense.amount
          print(f"Lowest: {lowest}")
+
+def catagory_summary():
+   print("==Catagory Summary==")
+   for expense in expenses:
+      print(f"  {expense.catagory}.............{expense.amount}$")
+
+
+def monthly_summary():
+   pass
