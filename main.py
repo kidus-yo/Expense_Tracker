@@ -26,7 +26,12 @@ def main():
         elif choice == 5:
             print("Welcome to Delete Expenses")
             delete_expenses()
-            
+
+        elif choice == 6:
+            print("Welcome to Expense Satstics📊")
+            print()
+            expense_statistics(highest, lowest)
+
         elif choice == 11:
             print("Thnaks for saving up Money💰")  
             print("Keep it going!")
