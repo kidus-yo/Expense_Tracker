@@ -1,5 +1,6 @@
 from models.expense import *
-from database import *   
+from database import *
+from datetime import datetime   
 
 def main_menu():
     print("*" * 30)
@@ -54,7 +55,14 @@ def add_expenses():
             print("Something is Wrong")
 
      try:
-      date = input("Enter Date: ")
+      date_input = input("Enter Date(year-month-date): ")
+      date = datetime.strptime(date_input, "%Y-%M-%D") 
+      add = Add_expense(description, amount, catagory, date)
+      expenses.append(add)
+      print("-" * 30)
+      print(f"Your Expense ID is: {Add_expense.description_ID}")
+      print("Expense Added Successfully!✅")
+      print("-" * 30)
      except ValueError:
           print("Please Enter only the required inputs")
      except Exception:
@@ -132,7 +140,8 @@ def update_expenses():
           print("Something went Wrong")
        
        try:
-          date1 = input("Enter Date: ")
+          date_input = input("Enter Date(year-month-date): ")
+          date1 = datetime.strptime(date_input, "%Y-%M-%D")  
        except ValueError:
           print("Please Enter only the required inputs")
        except UnboundLocalError:
@@ -182,10 +191,32 @@ def expense_statistics(highest, lowest):
          print(f"Lowest: {lowest}")
 
 def catagory_summary():
+   print("-" * 30)
    print("==Catagory Summary==")
+   print("-" * 30)
+
    for expense in expenses:
       print(f"  {expense.catagory}.............{expense.amount}$")
 
 
-def monthly_summary():
-   pass
+def monthly_summary(monthly_expenses):
+   print("-" * 30)
+   print("Monthly Summary") 
+   print("-" * 30)
+
+   for expense in expenses:
+      month_key = (expense.amount.year, expense.amount.month)
+
+      if month_key in monthly_expenes:
+           monthly_expenses[month_key] += expense.amount
+
+      else:
+         monthly_expenses[month_key] = expense.amount
+
+   for key,values in monthly_expenes.items():
+      print(f"Month,year: {key}..................Amount{values}")
+      print("These are your monthly expenses")
+
+
+
+
