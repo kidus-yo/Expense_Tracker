@@ -46,6 +46,15 @@ def main():
             print()
             monthly_summary(monthly_expenes)
 
+        elif choice == 9:
+            print("Welcome to Expert Report🤓")
+            print()
+            expert_report()
+
+        elif choice == 10:
+            print()
+            clear_expenses()
+
         elif choice == 11:
             print("Thnaks for saving up Money💰")  
             print("Keep it going!")

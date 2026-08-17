@@ -68,12 +68,8 @@ def add_expenses():
      except Exception:
              print("Something is Wrong")
 
-     add = Add_expense(description, amount, catagory, date)
-     expenses.append(add)
-     print("-" * 30)
-     print(f"Your Expense ID is: {Add_expense.description_ID}")
-     print("Expense Added Successfully!✅")
-     print("-" * 30)
+     
+     
    
 def view_expenses():
 
@@ -207,16 +203,20 @@ def monthly_summary(monthly_expenses):
    for expense in expenses:
       month_key = (expense.amount.year, expense.amount.month)
 
-      if month_key in monthly_expenes:
+      if month_key in monthly_expenses:
            monthly_expenses[month_key] += expense.amount
 
       else:
          monthly_expenses[month_key] = expense.amount
 
-   for key,values in monthly_expenes.items():
+   for key,values in monthly_expenses.items():
       print(f"Month,year: {key}..................Amount{values}")
       print("These are your monthly expenses")
 
+def expert_report():
+   pass
 
 
-
+def clear_expenses():
+   pass
+   
