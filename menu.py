@@ -185,10 +185,12 @@ def catagory_summary():
    print("-" * 30)
    print("==Catagory Summary==")
    print("-" * 30)
-
+   print("-" * 30)
    for expense in expenses:
-      print(f"  {expense.catagory}.............{expense.amount}$")
+    print(f"  {expense.catagory}.............{expense.amount}$")
 
+
+   print("-" * 30)
 
 def monthly_summary():
    print("-" * 30)
@@ -206,12 +208,18 @@ def monthly_summary():
 
    for key,values in monthly_expenses.items():
       print(f"Month, year: {key}..................Amount: {values}$")
+   for spend in expenses:
+      total = 0
+      total += spend.amount
+      print(f"Total Spending: {total}")
    print("These are your monthly expenses")
+   print("-" * 30)
 
 def expert_report():
-   pass
+ pass
 
 
 def clear_expenses():
-   pass
+  expenses.pop()
+  print("Expenses Removed Successfully!")
    
