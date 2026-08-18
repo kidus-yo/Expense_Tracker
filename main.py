@@ -1,4 +1,5 @@
 from menu import *
+from filewrite import *
 
 def main():
     running = True
@@ -54,8 +55,9 @@ def main():
         elif choice == 10:
             print()
             clear_expenses()
-
         elif choice == 11:
+            save_files(expenses)
+        elif choice == 12:
             print("Thnaks for saving up Money💰")  
             print("Keep it going!")
             running = False

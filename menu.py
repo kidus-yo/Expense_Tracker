@@ -17,7 +17,8 @@ def main_menu():
     print("8. Monthly Summary")
     print("9. Expert Report")
     print("10. Clear All Expenes")
-    print("11. Exit")
+    print("11. Save Changes")
+    print("12. Exit")
 
     try:
         choice = int(input("Please Enter your Choice: "))
