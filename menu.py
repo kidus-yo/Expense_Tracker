@@ -33,43 +33,40 @@ def main_menu():
 
 def add_expenses():
 
-     try:
-        description = input("Enter your description... ")
-     except ValueError:
-        print("Please Enter only the required inputs")
-     except Exception:
-        print("Something is Wrong")
+  
+     description = input("Enter your description... ")
+    
 
-     try:
-        amount = int(input("Enter an amount: "))
-     except ValueError:
-        print("Please Enter only the required inputs")
-     except Exception:
-            print("Something is Wrong")
+     while True:
+      try:
+         amount = int(input("Enter an amount: "))
+         break
+      except ValueError:
+         print("Please Enter only the required inputs on amount")
+      except Exception:
+               print("Something is Wrong")
 
-     try:        
-      catagory = input("Enter Catagory: ")
-     except ValueError:
-      print("Please Enter only the required inputs")
-     except Exception:
-            print("Something is Wrong")
-
-     try:
-      date_input = input("Enter Date(year-month-date): ")
-      date = datetime.strptime(date_input, "%Y-%M-%D") 
-      add = Add_expense(description, amount, catagory, date)
-      expenses.append(add)
-      print("-" * 30)
-      print(f"Your Expense ID is: {Add_expense.description_ID}")
-      print("Expense Added Successfully!✅")
-      print("-" * 30)
-     except ValueError:
-          print("Please Enter only the required inputs")
-     except Exception:
-             print("Something is Wrong")
-
+      
+     catagory = input("Enter Catagory: ")
      
+
+     while True:
+      try:
+         date_input = input("Enter Date(year-month-date): ")
+         date = datetime.strptime(date_input, "%Y-%m-%d") 
+         break
+      except ValueError:
+            print("Please Enter only the required inputs")
+      except Exception:
+               print("Something is Wrong")
+ 
      
+     add = Add_expense(description, amount, catagory, date)
+     expenses.append(add)
+     print("-" * 30)
+     print(f"Your Expense ID is: {Add_expense.description_ID}")
+     print("Expense Added Successfully!✅")
+     print("-" * 30)
    
 def view_expenses():
 
@@ -105,45 +102,43 @@ def search_expenses():
      print("Something went Wrong!")
 
 def update_expenses():
+   
    try:
     enter_ID = int(input("Please Enter your Expense ID: "))
     if enter_ID == Add_expense.description_ID:
        try:
         description1 = input("Enter your description... ")
-       except ValueError:
-         print("Please Enter only the required inputs")
        except UnboundLocalError:
           print("Not Associated with Value")
        except Exception:
          print("Something went Wrong")
-       
-       try:
-         amount1 = int(input("Enter an amount: "))
-       except ValueError:
-          print("Please Enter only the required inputs")
-       except UnboundLocalError:
-          print("Not Associated with Value")
-       except Exception:
-            print("Something went Wrong")
+
+       while True:
+         try:
+            amount1 = int(input("Enter an amount: "))
+            break
+         except UnboundLocalError:
+            print("Not Associated with Value")
+         except Exception:
+               print("Something went Wrong")
        
        try:        
          catagory1 = input("Enter Catagory: ")
-       except ValueError:
-          print("Please Enter only the required inputs")
        except UnboundLocalError:
           print("Not Associated with Value")
        except Exception:
           print("Something went Wrong")
-       
-       try:
-          date_input = input("Enter Date(year-month-date): ")
-          date1 = datetime.strptime(date_input, "%Y-%M-%D")  
-       except ValueError:
-          print("Please Enter only the required inputs")
-       except UnboundLocalError:
-          print("Not Associated with Value")
-       except Exception:
-          print("Something went Wrong")
+       while True:
+         try:
+            date_input = input("Enter Date(year-month-date): ")
+            date1 = datetime.strptime(date_input, "%Y-%M-%D")  
+            break
+         except ValueError:
+            print("Please Enter only the required inputs!")
+         except UnboundLocalError:
+            print("Not Associated with Value")
+         except Exception:
+            print("Something went Wrong")
    except ValueError:
       print("Please Enter only the required inputs!")
    except Exception:
@@ -195,13 +190,13 @@ def catagory_summary():
       print(f"  {expense.catagory}.............{expense.amount}$")
 
 
-def monthly_summary(monthly_expenses):
+def monthly_summary():
    print("-" * 30)
    print("Monthly Summary") 
    print("-" * 30)
-
+   monthly_expenses = {}
    for expense in expenses:
-      month_key = (expense.amount.year, expense.amount.month)
+      month_key = (expense.date.year, expense.date.month)
 
       if month_key in monthly_expenses:
            monthly_expenses[month_key] += expense.amount
@@ -210,8 +205,8 @@ def monthly_summary(monthly_expenses):
          monthly_expenses[month_key] = expense.amount
 
    for key,values in monthly_expenses.items():
-      print(f"Month,year: {key}..................Amount{values}")
-      print("These are your monthly expenses")
+      print(f"Month, year: {key}..................Amount: {values}$")
+   print("These are your monthly expenses")
 
 def expert_report():
    pass

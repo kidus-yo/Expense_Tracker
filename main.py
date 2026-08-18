@@ -44,7 +44,7 @@ def main():
         elif choice == 8:
             print("Welcome to monthly summary🈷️")
             print()
-            monthly_summary(monthly_expenes)
+            monthly_summary()
 
         elif choice == 9:
             print("Welcome to Expert Report🤓")
