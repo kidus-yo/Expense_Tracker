@@ -1,6 +1,7 @@
 from models.expense import *
 from database import *
-from datetime import datetime   
+from datetime import datetime
+import json    
 
 def main_menu():
     print("*" * 30)
@@ -71,14 +72,22 @@ def add_expenses():
    
 def view_expenses():
 
-    for view in expenses:
-     print()
      print("-" * 30)
-     print(f"Description: {view.description}")
-     print(f"Amount: {view.amount}")
-     print(f"Category: {view.catagory}")
-     print(f"Date: {view.date}")
-     print("-" * 30)
+
+     file_path  = "C:/Users/victus/OneDrive/Desktop/expenses.json"
+
+     with open(file_path, 'r') as file:
+        
+         content = json.load(file)
+         print(content)
+
+         for view in content:
+         
+            print(f"Description: {view["description"]}")
+            print(f"Amount: {view["amount"]}")
+            print(f"Category:  {view["catagory"]}")
+            print(f"Date: {view["date"]}")
+            print("-" * 30)
 
      print("Here are all your expense🫰")
 
