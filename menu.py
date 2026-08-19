@@ -79,7 +79,7 @@ def view_expenses():
        with open(file_path, 'r') as file:
          
             content = json.load(file)
-            print(content)
+           
 
             for view in content:
             
