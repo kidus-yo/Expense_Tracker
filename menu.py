@@ -62,8 +62,8 @@ def add_expenses():
       except Exception:
                print("Something is Wrong")
  
-     
-     add = Add_expense(description, amount, catagory, date)
+     description_ID = Add_expense.description_ID
+     add = Add_expense(description, amount, catagory, date, description_ID)
      expenses.append(add)
      print("-" * 30)
      print(f"Your Expense ID is: {Add_expense.description_ID}")
@@ -99,16 +99,22 @@ def search_expenses():
   try:
     enter_ID = int(input("Please Enter your expense ID: "))
     if enter_ID == Add_expense.description_ID:
-     for view in expenses:
-        print()
-        print("-" * 30)
-        print(f"Description: {view.description}")
-        print(f"Amount: {view.amount}")
-        print(f"Category: {view.catagory}")
-        print(f"Date: {view.date}")
-        print(f"Your Expense ID is: {Add_expense.description_ID}")
-        print("-" * 30)
-        print("Here are all your expense🫰")
+
+     file_path =  "C:/Users/victus/OneDrive/Desktop/expenses.json"
+
+     with open(file_path, 'r') as file:
+        content = json.load(file)
+
+        for view in content:
+         print()
+         print("-" * 30)
+         print(f"Description: {view["description"]}")
+         print(f"Amount: {view["amount"]}")
+         print(f"Category: {view["catagory"]}")
+         print(f"Date: {view["date"]}")
+         print(f"Your Expense ID is: {Add_expense.description_ID}")
+         print("-" * 30)
+         print("Here are all your expense🫰")
 
   except ValueError:
       print("Please Enter only the required inputs!")

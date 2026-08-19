@@ -6,11 +6,12 @@ class Add_expense:
      total_expense = 0
      total_count = 0
 
-     def __init__(self, description, amount, catagory, date):
+     def __init__(self, description, amount, catagory, date, description_ID):
           self.description = description
           self.amount = amount
           self.catagory = catagory
           self.date = date
+          self.description_ID = description_ID
           Add_expense.description_ID += 1
           Add_expense.total_count += 1
           Add_expense.total_expense += amount
