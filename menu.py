@@ -75,22 +75,26 @@ def view_expenses():
      print("-" * 30)
 
      file_path  = "C:/Users/victus/OneDrive/Desktop/expenses.json"
-
-     with open(file_path, 'r') as file:
-        
-         content = json.load(file)
-         print(content)
-
-         for view in content:
+     try:
+       with open(file_path, 'r') as file:
          
-            print(f"Description: {view["description"]}")
-            print(f"Amount: {view["amount"]}")
-            print(f"Category:  {view["catagory"]}")
-            print(f"Date: {view["date"]}")
-            print("-" * 30)
+            content = json.load(file)
+            print(content)
 
-     print("Here are all your expense🫰")
+            for view in content:
+            
+               print(f"Description: {view["description"]}")
+               print(f"Amount: {view["amount"]}")
+               print(f"Category:  {view["catagory"]}")
+               print(f"Date: {view["date"]}")
+               print("-" * 30)
 
+            print("Here are all your expense🫰")
+     except FileNotFoundError:
+        print("File doesnt Exist")
+     except PermissionError:
+        print("Permission not Allowed")
+         
 def search_expenses():
   try:
     enter_ID = int(input("Please Enter your expense ID: "))
