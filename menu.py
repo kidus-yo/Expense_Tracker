@@ -62,8 +62,7 @@ def add_expenses():
       except Exception:
                print("Something is Wrong")
  
-     description_ID = Add_expense.description_ID
-     add = Add_expense(description, amount, catagory, date, description_ID)
+     add = Add_expense(description, amount, catagory, date, )
      expenses.append(add)
      print("-" * 30)
      print(f"Your Expense ID is: {Add_expense.description_ID}")

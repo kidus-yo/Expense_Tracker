@@ -6,19 +6,19 @@ class Add_expense:
      total_expense = 0
      total_count = 0
 
-     def __init__(self, description, amount, catagory, date, description_ID):
+     def __init__(self, description, amount, catagory, date):
           self.description = description
           self.amount = amount
           self.catagory = catagory
           self.date = date
-          self.description_ID = description_ID
+
           Add_expense.description_ID += 1
           Add_expense.total_count += 1
           Add_expense.total_expense += amount
 
      @classmethod
      def get_count(cls):
-          return f"{cls.count}"
+          return f"{cls.total_count}"
 
      @classmethod
      def get_average(cls):

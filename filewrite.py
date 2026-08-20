@@ -1,21 +1,28 @@
 from database import *
 import json 
 import csv
+from models.expense import *
 
 def save_files(expenses):
-    file_path = "C:/Users/victus/OneDrive/Desktop/expenses.json"
+  file_path = "C:/Users/victus/OneDrive/Desktop/expenses.json"
 
-    data = []
-    for expense in expenses:
-     data.append({
-    
+  data = []
+
+  for expense in expenses:
+      data.append({
+
+      "description_ID": expense.description_ID,
       "description": expense.description,
       "catagory": expense.catagory,
       "amount": expense.amount,
       "date": expense.date.strftime("%Y-%m-%d"),
+      "description_ID": expense.description_ID
                                                                                                                             
     })
+  if data:
+     highest_ID = max( description["description_id"] for description in data)
+     Add_expense.descrption_ID = highest_ID + 1
 
-    with open(file_path, "w") as file:
-     json.dump(data, file, indent=4)
-     print(f"Json file Created with path {file_path}")
+  with open(file_path, "w") as file:
+      json.dump(data, file, indent=4)
+      print(f"Json file Created with path {file_path}")
