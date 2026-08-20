@@ -1,7 +1,8 @@
 from models.expense import *
 from database import *
 from datetime import datetime
-import json    
+import json 
+from filewrite import *   
 
 def main_menu():
     print("*" * 30)
@@ -64,36 +65,24 @@ def add_expenses():
  
      add = Add_expense(description, amount, catagory, date, )
      expenses.append(add)
+     save_files(expenses)
      print("-" * 30)
      print(f"Your Expense ID is: {Add_expense.description_ID}")
      print("Expense Added Successfully!✅")
      print("-" * 30)
    
 def view_expenses():
+    expense = load_files()
 
-     print("-" * 30)
+    print(expense)
 
-     file_path  = "C:/Users/victus/OneDrive/Desktop/expenses.json"
-     try:
-       with open(file_path, 'r') as file:
-         
-            content = json.load(file)
-           
+    for expenses in expense:
+       print(f"Description_ID:{expenses["description_ID"]}")
+       print(f"Description: {expenses["description"]}")
+       print(f"Catagory: {expenses["catagory"]}")
+       print(f"Amount: {expenses["amount"]}")
+       print(f"Date: {expenses["date"]}")
 
-            for view in content:
-            
-               print(f"Description: {view["description"]}")
-               print(f"Amount: {view["amount"]}")
-               print(f"Category:  {view["catagory"]}")
-               print(f"Date: {view["date"]}")
-               print("-" * 30)
-
-            print("Here are all your expense🫰")
-     except FileNotFoundError:
-        print("File doesnt Exist")
-     except PermissionError:
-        print("Permission not Allowed")
-         
 def search_expenses():
   try:
     enter_ID = int(input("Please Enter your expense ID: "))

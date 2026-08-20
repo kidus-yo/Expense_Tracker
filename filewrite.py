@@ -33,5 +33,6 @@ def load_files():
 
    if content:
       highest_id = max( description["description_ID"] for description in content)
-      Add_expense.description_ID += highest_id
-         
+      Add_expense.description_ID = highest_id + 1
+
+   return content
