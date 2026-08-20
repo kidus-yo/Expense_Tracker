@@ -25,4 +25,13 @@ def save_files(expenses):
       print(f"Json file Created with path {file_path}")
 
 
-def
+def load_files():
+   file_path = "C:/Users/victus/OneDrive/Desktop/expenses.json"
+
+   with open(file_path, 'r') as file:
+      content = json.load(file)
+
+   if content:
+      highest_id = max( description["description_ID"] for description in content)
+      Add_expense.description_ID += highest_id
+         
