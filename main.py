@@ -1,5 +1,6 @@
 from menu import *
 from filewrite import *
+import database
 
 def main():
     running = True
@@ -63,6 +64,7 @@ def main():
             running = False
             break 
 
-
+  
 if __name__ == "__main__":
+    database.expenses.extend(load_files())
     main()
