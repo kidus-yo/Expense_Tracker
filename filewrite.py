@@ -2,7 +2,7 @@ from database import *
 import json 
 import csv
 from models.expense import *
-import datetime
+from datetime import datetime
 
 def save_files(expenses):
   file_path = "C:/Users/victus/OneDrive/Desktop/expenses.json"
@@ -35,9 +35,9 @@ def load_files():
    except FileNotFoundError:
       print("File Not Found!")
 
-      load_expenses = []
+   load_expenses = []
 
-      for data in content:
+   for data in content:
        expense = Add_expense(
          data["description"],
          data["catagory"],

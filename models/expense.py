@@ -14,7 +14,7 @@ class Add_expense:
 
           Add_expense.description_ID += 1
           Add_expense.total_count += 1
-          Add_expense.total_expense += amount
+      
 
      @classmethod
      def get_count(cls):

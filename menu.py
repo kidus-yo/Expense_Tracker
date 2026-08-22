@@ -72,17 +72,16 @@ def add_expenses():
      print("-" * 30)
    
 def view_expenses():
-    expense = load_files()
-
-    print(expense)
-
-    for expenses in expense:
-       print(f"Description_ID:{expenses["description_ID"]}")
-       print(f"Description: {expenses["description"]}")
-       print(f"Catagory: {expenses["catagory"]}")
-       print(f"Amount: {expenses["amount"]}")
-       print(f"Date: {expenses["date"]}")
-
+    
+    print("-" * 30)
+    for expense in expenses:
+       print(f"Description_ID:{expense.description_ID}")
+       print(f"Description: {expense.description}")
+       print(f"Catagory: {expense.catagory}")
+       print(f"Amount: {expense.amount}")
+       print(f"Date: {expense.date}")
+    print("-" * 30)
+    
 def search_expenses():
   try:
     enter_ID = int(input("Please Enter your expense ID: "))
@@ -139,7 +138,7 @@ def update_expenses():
        while True:
          try:
             date_input = input("Enter Date(year-month-date): ")
-            date1 = datetime.strptime(date_input, "%Y-%M-%D")  
+            date1 = datetime.datetime.strptime(date_input, "%Y-%M-%D")  
             break
          except ValueError:
             print("Please Enter only the required inputs!")
