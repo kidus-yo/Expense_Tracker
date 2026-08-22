@@ -171,16 +171,11 @@ def expense_statistics(highest, lowest):
    average = Add_expense.get_average()
    print(f"Average Expense: {average}$")
 
-   for expense in expenses:
-    
-    if expense.amount >= highest:
-       highest = expense.amount
-       print(f"Highest: {highest}")
-
-   
-    if expense.amount <= lowest:
-         lowest = expense.amount
-         print(f"Lowest: {lowest}")
+   highest_amount = max(expense.amount for expense in expenses)
+   print(f"Highest Spending: {highest_amount}$")
+   lowest_amount = min( expense.amount for expense in expenses)
+   print(f"Lowest Spending: {lowest_amount}$")
+  
 
 def catagory_summary():
    print("-" * 30)
