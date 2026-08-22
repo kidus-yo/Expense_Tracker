@@ -80,7 +80,7 @@ def view_expenses():
        print(f"Catagory: {expense.catagory}")
        print(f"Amount: {expense.amount}")
        print(f"Date: {expense.date}")
-    print("-" * 30)
+       print("-" * 30)
 
 def search_expenses():
    try:
@@ -105,7 +105,8 @@ def update_expenses():
    
    try:
     enter_ID = int(input("Please Enter your Expense ID: "))
-    if enter_ID == Add_expense.description_ID:
+    for expense in expenses:
+     if enter_ID == expense.description_ID:
        try:
         description1 = input("Enter your description... ")
        except UnboundLocalError:
@@ -131,7 +132,7 @@ def update_expenses():
        while True:
          try:
             date_input = input("Enter Date(year-month-date): ")
-            date1 = datetime.strptime(date_input, "%Y-%M-%D")  
+            date1 = datetime.strptime(date_input, "%Y-%m-%d")  
             break
          except ValueError:
             print("Please Enter only the required inputs!")
@@ -139,25 +140,26 @@ def update_expenses():
             print("Not Associated with Value")
          except Exception:
             print("Something went Wrong")
+    for view in expenses:
+          view.description = description1
+          view.amount = amount1
+          view.catagory = catagory1
+          view.date = date1
+
+    print("Expense Updated Successfully!✅")
    except ValueError:
       print("Please Enter only the required inputs!")
    except Exception:
       print("Something Went Wrong!")   
 
-   for view in expenses:
-      view.desciption = description1
-      view.amount = amount1
-      view.catagory = catagory1
-      view.date = date1
-
-   print("Expense Updated Successfully!✅")
+ 
 
 def delete_expenses():
 
    try:
       enter_ID = int(input("Enter your Expense ID: "))
       for removal in expenses:
-       if enter_ID == Add_expense.description_ID:
+       if enter_ID == removal.description_ID:
          expenses.remove(removal)
          print("Expense data removed Successfully!✅")
    except ValueError:

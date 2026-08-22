@@ -58,8 +58,10 @@ def main():
             clear_expenses()
         elif choice == 11:
             save_files(expenses)
+            print("File Saved Successfully!✅")
         elif choice == 12:
-            print("Thnaks for saving up Money💰")  
+            print("-" * 30)
+            print("Thnaks for Tracking your Expenes💰")  
             print("Keep it going!")
             running = False
             break 
