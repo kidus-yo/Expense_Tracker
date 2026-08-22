@@ -36,7 +36,7 @@ def main():
         elif choice == 6:
             print("Welcome to Expense Satstics📊")
             print()
-            expense_statistics(highest, lowest)
+            expense_statistics()
 
         elif choice == 7:
             print("Welcome to Catagory Summary📇")

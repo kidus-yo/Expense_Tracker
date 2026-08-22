@@ -167,7 +167,7 @@ def delete_expenses():
    except Exception:
       print("Something went wrong")
 
-def expense_statistics(highest, lowest):
+def expense_statistics():
 
    print(f"Total Expense: {Add_expense.total_expense}$")
    average = Add_expense.get_average()
