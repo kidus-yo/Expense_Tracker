@@ -81,32 +81,25 @@ def view_expenses():
        print(f"Amount: {expense.amount}")
        print(f"Date: {expense.date}")
     print("-" * 30)
-    
+
 def search_expenses():
-  try:
+   try:
     enter_ID = int(input("Please Enter your expense ID: "))
-    if enter_ID == Add_expense.description_ID:
 
-     file_path =  "C:/Users/victus/OneDrive/Desktop/expenses.json"
-
-     with open(file_path, 'r') as file:
-        content = json.load(file)
-
-        for view in content:
-         print()
-         print("-" * 30)
-         print(f"Description: {view["description"]}")
-         print(f"Amount: {view["amount"]}")
-         print(f"Category: {view["catagory"]}")
-         print(f"Date: {view["date"]}")
-         print(f"Your Expense ID is: {Add_expense.description_ID}")
-         print("-" * 30)
-         print("Here are all your expense🫰")
-
-  except ValueError:
-      print("Please Enter only the required inputs!")
-  except Exception:
-     print("Something went Wrong!")
+    
+    for expense in expenses:
+       if enter_ID == expense.description_ID:
+            print("-" * 30)
+       
+            print(f"Description_ID:{expense.description_ID}")
+            print(f"Description: {expense.description}")
+            print(f"Catagory: {expense.catagory}")
+            print(f"Amount: {expense.amount}")
+            print(f"Date: {expense.date}")
+            print("-" * 30)
+ 
+   except ValueError:
+      print("Enter only the required inputs")
 
 def update_expenses():
    
@@ -138,7 +131,7 @@ def update_expenses():
        while True:
          try:
             date_input = input("Enter Date(year-month-date): ")
-            date1 = datetime.datetime.strptime(date_input, "%Y-%M-%D")  
+            date1 = datetime.strptime(date_input, "%Y-%M-%D")  
             break
          except ValueError:
             print("Please Enter only the required inputs!")
