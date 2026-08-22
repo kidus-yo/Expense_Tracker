@@ -40,8 +40,8 @@ def load_files():
    for data in content:
        expense = Add_expense(
          data["description"],
-         data["catagory"],
          data["amount"],
+         data["catagory"],
          datetime.strptime(data["date"], "%Y-%m-%d")
 
       )

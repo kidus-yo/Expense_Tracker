@@ -12,6 +12,7 @@ class Add_expense:
           self.catagory = catagory
           self.date = date
 
+          Add_expense.total_expense += amount
           Add_expense.description_ID += 1
           Add_expense.total_count += 1
       
